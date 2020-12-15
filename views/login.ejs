@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/commonhead") %>
+    <link rel="stylesheet" href="/css/log-sign.css" />
+  </head>
+
+  <body>
+    <!-- My Form -->
+    <div class="my-form">
+      <a href="#"><img src="./img/logo.svg" alt="" /></a>
+      <h1 class="form-heading">Login</h1>
+      <div class="form-text">Login with your inboxGun account.</div>
+      <%- include ("partials/messages") %>
+      <form action="/login" method="POST" data-parsley-validate>
+        <div class="icon-input">
+          <input
+            class="form-input"
+            type="email"
+            name="email"
+            id=""
+            placeholder="Email"
+            required
+          />
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="icon-input">
+          <input
+            class="form-input"
+            type="password"
+            name="password"
+            id=""
+            placeholder="password"
+            required
+            minlength="6"
+          />
+          <i class="fas fa-lock"></i>
+        </div>
+        <button class="form-btn my-3">Login</button>
+        <div class="form-text">
+          Don't have an account? <a href="/signup">SignUp</a>
+        </div>
+      </form>
+    </div>
+    <%- include ("partials/commonscripts") %>
+  </body>
+</html>

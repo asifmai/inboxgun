@@ -1,0 +1,78 @@
+:root {
+  --theme-color: #486cf1;
+  --secondary-color: #888888;
+  --primary-color: #222222;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  background-color: var(--theme-color);
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+/* Login Form */
+.my-form {
+  background-color: white;
+  padding: 3em;
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
+}
+
+.my-form .form-heading {
+  font-size: 1.3em;
+  margin: 0.5em 0;
+}
+
+.my-form .form-text {
+  color: var(--secondary-color);
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+.my-form .form-input {
+  width: 100%;
+  padding: 0.4em 0.8em 0.4em 2.5em;
+  color: var(--primary-color);
+  border: 1px solid #dcdcdc;
+  border-radius: 0.3em;
+  outline: none;
+  margin-top: 1.2em;
+  background-color: #e7f1fe;
+}
+
+.my-form .icon-input {
+  position: relative;
+}
+
+.my-form .icon-input i {
+  position: absolute;
+  color: #dcdcdc;
+  top: 30px;
+  left: 15px;
+}
+
+.my-form .form-btn {
+  background-color: var(--theme-color);
+  color: white;
+  outline: none;
+  padding: 0.8em 2.5em;
+  border-radius: 0.2em;
+  border: none;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+/* Sign Up Form */
+.accept-text {
+  font-size: 0.9em;
+  color: var(--secondary-color);
+  display: inline-block;
+  vertical-align: top;
+}

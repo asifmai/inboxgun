@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/commonhead") %>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <%- include ("partials/header") %>
+    <!-- Dashboard -->
+    <div class="container mt-5 pt-3 pb-5">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="dashboard-card">
+            <a class="dashboard-card-link" href="#"
+              ><i class="far fa-hand-point-up"></i> Clicks</a
+            >
+            <div class="number">10</div>
+          </div>
+          <div class="dashboard-card">
+            <a class="dashboard-card-link" href="#"
+              ><i class="far fa-user"></i> Contacts</a
+            >
+            <div class="number">28</div>
+            <a class="view-link" href="#">view all contacts</a>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="chart h-100 dashboard-card">
+            <h1 class="main-heading">Clicks</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include ("partials/commonscripts") %>
+  </body>
+</html>

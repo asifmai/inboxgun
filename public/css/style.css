@@ -1,0 +1,327 @@
+:root {
+  --theme-color: #486cf1;
+  --secondary-color: #888888;
+  --primary-color: #222222;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  background-color: #f9fcff;
+  color: var(--secondary-color);
+}
+
+/* Page Navbar */
+.page-Navbar {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
+  border-top: 2px solid var(--secondary-color);
+}
+
+.page-Navbar .navbar-brand img {
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 2.5em;
+}
+
+.page-Navbar .nav-item .nav-link {
+  color: var(--secondary-color);
+  font-weight: 500;
+  font-size: 0.9em;
+  margin-right: 1.4em;
+  transition: 200ms ease-in-out;
+}
+
+.page-Navbar .nav-item.active .nav-link,
+.page-Navbar .nav-item .nav-link:hover {
+  color: var(--theme-color);
+}
+
+.page-Navbar .nav-item .nav-link i {
+  margin-right: 0.3em;
+}
+
+.page-Navbar .log-out {
+  color: #f44336;
+  font-size: 0.9em;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.page-Navbar .log-out i {
+  margin-right: 0.3em;
+}
+
+/* xampaings Page */
+.campaings {
+  padding: 1.5em 0.5em;
+  margin-top: 3em;
+}
+
+.campaings .campaings-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.add-btn {
+  background-color: var(--theme-color);
+  color: white !important;
+  font-weight: 300;
+  text-decoration: none !important;
+  display: inline-block;
+  padding: 0.8em 1em;
+  border-radius: 0.2em;
+  border: none;
+  font-size: 0.8em;
+}
+
+/* Campaings Card */
+.campaings-card {
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  border-radius: 0.3em;
+  text-align: center;
+  position: relative;
+  margin-bottom: 2em;
+  transition: 100ms ease-in-out;
+}
+
+.campaings-card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.campaings-card .campaings-card-header .fa-inbox {
+  color: #e7ebff;
+  font-size: 4em;
+}
+
+.campaings-card .campaings-card-header {
+  padding: 3.2em 0;
+}
+
+.main-text {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.sub-text {
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.campaings-card .campaings-card-footer {
+  padding: 0.6em 0;
+  border-top: 1px solid #dcdcdc;
+}
+
+.campaings-card .campaings-card-footer .main-text {
+  margin-bottom: 0.5em;
+}
+
+.campaings-card .dropdown-toggle::after {
+  content: unset;
+}
+
+.campaings-card .btn.btn-secondary.dropdown-toggle {
+  background-color: white;
+  border: 2px solid #dcdcdc;
+  color: #dcdcdc;
+  font-size: 0.7em;
+  padding: 0em 0.4em;
+  border-radius: 0.2em;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  box-shadow: none;
+}
+
+.campaings-card .dropdown-item {
+  margin-bottom: 0.5em;
+}
+
+.campaings-card .dropdown-menu {
+  box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f3e7ff;
+  border-radius: 0.3em;
+  position: relative;
+  margin-top: 0.6em;
+}
+
+.campaings-card .dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 11px;
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border-radius: 3px 0px 0px 0px;
+  transform: rotate(45deg);
+  border-left: 1px solid #f3e7ff;
+  border-top: 1px solid #f3e7ff;
+}
+
+.main-heading {
+  color: var(--primary-color);
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.new-campaing-input {
+  width: 100%;
+  border: 1px solid #dcdcdc;
+  border-radius: 0.2em;
+  outline: none;
+  padding: 0.3em 0.6em;
+  margin-top: 2.2em;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.campaings-btn {
+  background-color: var(--theme-color);
+  padding: 1.3em 3em;
+  border: none;
+  border-radius: 0.2em;
+  font-weight: 300;
+  font-size: 0.9em;
+  color: white !important;
+  display: inline-block;
+  text-decoration: none !important;
+  margin-top: 0.6em;
+}
+
+.campaings-btn.cancel-btn {
+  background-color: transparent;
+  color: var(--theme-color) !important;
+  font-weight: 500;
+}
+
+/* Settings Page */
+.settings-page {
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.04);
+  padding: 2em;
+}
+
+.settings-page .tab-link {
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-right: 2em;
+  color: var(--secondary-color);
+  text-decoration: none !important;
+}
+
+.settings-page .tab-link.active {
+  color: var(--theme-color);
+  border-bottom: 3px solid var(--theme-color);
+  padding-bottom: 0.4em;
+}
+
+.settings-page .common-style {
+  border: 1px solid #dcdcdc;
+  border-radius: 0.2em;
+  padding: 0.3em 0.6em;
+  outline: none;
+  width: 100%;
+  /* margin-bottom: 1.4em; */
+}
+
+.settings-page .my-label {
+  margin-bottom: 0.5em;
+  margin-top: 1.5em;
+  font-size: 0.9em;
+}
+
+.settings-page .setting-table {
+  width: 100%;
+}
+
+.settings-page .setting-table td {
+  padding: 0.8em;
+  vertical-align: middle;
+}
+
+.setting-table tbody > tr td:last-child {
+  text-align: center;
+}
+
+.setting-table thead tr {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.settings-tab.nav.nav-tabs {
+  border: none;
+}
+
+/* Dashboard Page */
+.dashboard-card {
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2em;
+  padding: 2em;
+}
+
+.dashboard-card .dashboard-card-link {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+.dashboard-card .number {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: var(--theme-color);
+  margin-top: 2em;
+}
+
+.dashboard-card .view-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin-top: 1em;
+  display: inline-block;
+}
+/* Multi Select start */
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#checkboxes label {
+  display: block;
+  text-align: start;
+  padding: 1em;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+  color: white;
+}
+.new-campaing input[type='radio'],
+input[type='checkbox'] {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.8em;
+  vertical-align: middle;
+}
+/* Multi Select end */

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/commonhead") %>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <%- include ("partials/header") %>
+    <div class="new-campaing mt-5 pt-3">
+      <div class="container">
+        <div class="col-md-7 mx-auto text-center">
+          <h1 class="main-heading mb-3">Create New Campaing</h1>
+          <div class="sub-text">
+            Enter campaing name you'u like to create below.
+          </div>
+          <input class="new-campaing-input" type="text" name="" id="" />
+          <input class="new-campaing-input" type="text" name="" id="" />
+          <select class="new-campaing-input" name="" id="">
+            <option value="">Select</option>
+            <option value="">Select 1</option>
+            <option value="">Select 2</option>
+          </select>
+          <div class="multiselect">
+            <div class="selectBox" onclick="showCheckboxes()">
+              <select class="new-campaing-input">
+                <option>Select an option</option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="checkboxes">
+              <label for="one">
+                <input type="checkbox" id="one" />First checkbox</label
+              >
+              <label for="two">
+                <input type="checkbox" id="two" />Second checkbox</label
+              >
+              <label for="three">
+                <input type="checkbox" id="three" />Third checkbox</label
+              >
+            </div>
+          </div>
+          <div class="campaings-buttons mt-4">
+            <a class="campaings-btn" href="#">Continue</a>
+            <a class="campaings-btn cancel-btn" href="/campaigns">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include ("partials/commonscripts") %>
+  </body>
+</html>

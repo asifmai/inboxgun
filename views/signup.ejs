@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/commonhead") %>
+    <link rel="stylesheet" href="/css/log-sign.css" />
+  </head>
+
+  <body>
+    <!--  My Form -->
+    <div class="my-form">
+      <a href="#"><img src="./img/logo.svg" alt="" /></a>
+      <h1 class="form-heading">Sign Up</h1>
+      <div class="form-text">Login with your inboxGun account.</div>
+      <%- include ("partials/messages") %>
+      <form action="/signup" method="POST" data-parsley-validate>
+        <div class="icon-input">
+          <input
+            class="form-input"
+            type="text"
+            name="firstName"
+            id=""
+            placeholder="First Name"
+            required
+            value="<%= typeof firstName != 'undefined' ? firstName : '' %>"
+          />
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="icon-input">
+          <input
+            class="form-input"
+            type="text"
+            name="lastName"
+            id=""
+            placeholder="Last Name"
+            required
+            value="<%= typeof lastName != 'undefined' ? lastName : '' %>"
+          />
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="icon-input">
+          <input
+            class="form-input"
+            type="email"
+            name="email"
+            id=""
+            placeholder="Email"
+            required
+            value="<%= typeof email != 'undefined' ? email : '' %>"
+          />
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="icon-input">
+          <input
+            class="form-input"
+            type="password"
+            name="password"
+            id=""
+            placeholder="Password"
+            minlength="6"
+            value="<%= typeof password != 'undefined' ? password : '' %>"
+          />
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="icon-input mt-3">
+          <input class="mr-1" type="checkbox" name="accept" id="" required />
+          <span class="accept-text"
+            >I accept the <a href="#">Terms of Use</a> &
+            <a href="#">Privacy Policy</a></span
+          >
+        </div>
+        <button class="form-btn my-3">Sign Up</button>
+        <div class="form-text">
+          Already Registered? <a href="/login">Login</a>
+        </div>
+      </form>
+    </div>
+    <%- include ("partials/commonscripts") %>
+  </body>
+</html>

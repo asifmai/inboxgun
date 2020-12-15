@@ -1,0 +1,48 @@
+<!-- Navbar -->
+<div class="page-Navbar">
+  <div class="container">
+    <nav class="navbar navbar-expand-sm navbar-light px-2 px-md-0">
+      <a class="navbar-brand" href="#"><img src="./img/logo.svg" alt="" /></a>
+      <button
+        class="navbar-toggler d-lg-none"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item <%= page == 'dashboard' ? 'active' : '' %>">
+            <a class="nav-link" href="/"
+              ><i class="fas fa-home"></i> Dashboard</a
+            >
+          </li>
+          <li class="nav-item <%= page == 'campaigns' ? 'active' : '' %>">
+            <a class="nav-link" href="/campaigns"
+              ><i class="fas fa-inbox"></i> Campaings</a
+            >
+          </li>
+          <li class="nav-item <%= page == 'contacts' ? 'active' : '' %>">
+            <a class="nav-link" href="#"
+              ><i class="fas fa-envelope"></i> Contacts</a
+            >
+          </li>
+          <li class="nav-item <%= page == 'settings' ? 'active' : '' %>">
+            <a class="nav-link" href="/settings"
+              ><i class="fas fa-cog"></i> Settings</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <a href="/logout" class="log-out"
+            ><i class="fas fa-power-off"></i> Logout</a
+          >
+        </form>
+      </div>
+    </nav>
+  </div>
+</div>
