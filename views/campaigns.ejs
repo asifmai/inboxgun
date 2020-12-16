@@ -13,7 +13,9 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <a class="campaings-link" href="#">Campaings (234)</a>
+              <a class="campaings-link" href="#"
+                >Campaings (<%= campaigns.length %>)</a
+              >
             </div>
             <div class="col-md-6 text-left text-md-right mt-4 mt-md-0">
               <a id="create-new-campaing" class="add-btn" href="/campaigns/new"
@@ -23,10 +25,12 @@
           </div>
         </div>
       </div>
+      <div class="container"><%- include ("partials/messages") %></div>
 
       <!-- Campaings Card -->
       <div class="container">
         <div class="row">
+          <% for (let i = 0; i < campaigns.length; i++) { %>
           <div class="col-md-3">
             <div class="campaings-card">
               <div class="dropdown">
@@ -55,191 +59,23 @@
                 <i class="fas fa-inbox"></i>
               </div>
               <div class="campaings-card-footer">
-                <div class="main-text">Tect</div>
-                <div class="sub-text">Sep 15, 2020</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="campaings-card">
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="triggerId"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-chevron-down"></i>
-                </button>
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="triggerId"
-                >
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
+                <div class="main-text"><%= campaigns[i].name %></div>
+                <div class="sub-text campaign-date">
+                  <%= campaigns[i].createdAt %>
                 </div>
               </div>
-              <div class="campaings-card-header">
-                <i class="fas fa-inbox"></i>
-              </div>
-              <div class="campaings-card-footer">
-                <div class="main-text">Tect</div>
-                <div class="sub-text">Sep 15, 2020</div>
-              </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="campaings-card">
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="triggerId"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-chevron-down"></i>
-                </button>
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="triggerId"
-                >
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                </div>
-              </div>
-              <div class="campaings-card-header">
-                <i class="fas fa-inbox"></i>
-              </div>
-              <div class="campaings-card-footer">
-                <div class="main-text">Tect</div>
-                <div class="sub-text">Sep 15, 2020</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="campaings-card">
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="triggerId"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-chevron-down"></i>
-                </button>
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="triggerId"
-                >
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                </div>
-              </div>
-              <div class="campaings-card-header">
-                <i class="fas fa-inbox"></i>
-              </div>
-              <div class="campaings-card-footer">
-                <div class="main-text">Tect</div>
-                <div class="sub-text">Sep 15, 2020</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="campaings-card">
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="triggerId"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-chevron-down"></i>
-                </button>
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="triggerId"
-                >
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                </div>
-              </div>
-              <div class="campaings-card-header">
-                <i class="fas fa-inbox"></i>
-              </div>
-              <div class="campaings-card-footer">
-                <div class="main-text">Tect</div>
-                <div class="sub-text">Sep 15, 2020</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="campaings-card">
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  id="triggerId"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-chevron-down"></i>
-                </button>
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="triggerId"
-                >
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Action</a>
-                </div>
-              </div>
-              <div class="campaings-card-header">
-                <i class="fas fa-inbox"></i>
-              </div>
-              <div class="campaings-card-footer">
-                <div class="main-text">Tect</div>
-                <div class="sub-text">Sep 15, 2020</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="campaings-card">
-              <div class="campaings-card-header">
-                <i class="fas fa-inbox"></i>
-              </div>
-              <div class="campaings-card-footer">
-                <div class="main-text">Tect</div>
-                <div class="sub-text">Sep 15, 2020</div>
-              </div>
-            </div>
-          </div>
+          <% } %>
         </div>
       </div>
     </div>
 
     <%- include ("partials/commonscripts") %>
+    <script>
+      document.querySelectorAll('.campaign-date').forEach((elm) => {
+        elm.textContent = moment(elm.textContent).format('MMM DD, YYYY');
+      });
+    </script>
   </body>
 </html>

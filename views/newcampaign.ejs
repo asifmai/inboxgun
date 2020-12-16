@@ -14,40 +14,80 @@
           <div class="sub-text">
             Enter campaing name you'u like to create below.
           </div>
-          <input class="new-campaing-input" type="text" name="" id="" />
-          <input class="new-campaing-input" type="text" name="" id="" />
-          <select class="new-campaing-input" name="" id="">
-            <option value="">Select</option>
-            <option value="">Select 1</option>
-            <option value="">Select 2</option>
-          </select>
-          <div class="multiselect">
-            <div class="selectBox" onclick="showCheckboxes()">
-              <select class="new-campaing-input">
-                <option>Select an option</option>
-              </select>
-              <div class="overSelect"></div>
+          <form action="/campaigns/new" method="POST" data-parsley-validate>
+            <input
+              class="new-campaing-input"
+              type="text"
+              name="name"
+              required
+              placeholder="Name"
+            />
+            <input
+              class="new-campaing-input"
+              type="number"
+              name="numberOfEmails"
+              required
+              placeholder="Number of Emails"
+            />
+            <input
+              class="new-campaing-input"
+              type="email"
+              name="replyTo"
+              required
+              placeholder="Reply To"
+            />
+            <select class="new-campaing-input" name="server" required>
+              <option value="">Select Server</option>
+              <% for (let i = 0; i < settings.length; i++) { %>
+              <option value="<%= settings[i]._id %>">
+                <%= settings[i].host %> - <%= settings[i].port %> - <%=
+                settings[i].service %>
+              </option>
+              <% } %>
+            </select>
+            <div class="multiselect">
+              <div class="selectBox" onclick="showCheckboxes()">
+                <select class="new-campaing-input">
+                  <option>Replies</option>
+                </select>
+                <div class="overSelect"></div>
+              </div>
+              <div id="checkboxes">
+                <% for (let i = 0; i < replies.length; i++) { %>
+                <label for="<%= replies[i]._id %>">
+                  <input
+                    type="checkbox"
+                    id="<%= replies[i]._id %>"
+                    name="replies"
+                    value="<%= replies[i]._id %>"
+                  /><%= replies[i].name %>
+                </label>
+                <% } %>
+              </div>
             </div>
-            <div id="checkboxes">
-              <label for="one">
-                <input type="checkbox" id="one" />First checkbox</label
-              >
-              <label for="two">
-                <input type="checkbox" id="two" />Second checkbox</label
-              >
-              <label for="three">
-                <input type="checkbox" id="three" />Third checkbox</label
-              >
+            <div class="campaings-buttons mt-4">
+              <button class="campaings-btn" type="submit">Continue</button>
+              <a class="campaings-btn cancel-btn" href="/campaigns">Cancel</a>
             </div>
-          </div>
-          <div class="campaings-buttons mt-4">
-            <a class="campaings-btn" href="#">Continue</a>
-            <a class="campaings-btn cancel-btn" href="/campaigns">Cancel</a>
-          </div>
+          </form>
         </div>
       </div>
     </div>
 
     <%- include ("partials/commonscripts") %>
+    <script>
+      var expanded = false;
+
+      function showCheckboxes() {
+        var checkboxes = document.getElementById('checkboxes');
+        if (!expanded) {
+          checkboxes.style.display = 'block';
+          expanded = true;
+        } else {
+          checkboxes.style.display = 'none';
+          expanded = false;
+        }
+      }
+    </script>
   </body>
 </html>
