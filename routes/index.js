@@ -29,8 +29,11 @@ router.get('/campaigns', auth.ensureAuthenticatedAdmin, campaignController.campa
 // GET - Private - New Campaign
 router.get('/campaigns/new', auth.ensureAuthenticatedAdmin, campaignController.newcampaign_get);
 
-// GET - Private - New Campaign
+// POST - Private - New Campaign
 router.post('/campaigns/new', auth.ensureAuthenticatedAdmin, campaignController.newcampaign_post);
+
+// GET - Private - Delete Campaign
+router.get('/campaigns/delete/:id', auth.ensureAuthenticatedAdmin, campaignController.deletecampaign_get);
 
 // GET - Private - Campaigns
 router.get('/settings', auth.ensureAuthenticatedAdmin, settingController.settings_get);

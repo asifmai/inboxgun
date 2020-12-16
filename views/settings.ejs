@@ -66,15 +66,13 @@
                     class="common-style"
                     type="text"
                     name="port"
-                    id=""
                     required
                   />
-                  <label class="my-label" for="">Email</label>
+                  <label class="my-label" for="">User Name</label>
                   <input
                     class="common-style"
-                    type="email"
-                    name="email"
-                    id=""
+                    type="text"
+                    name="userName"
                     required
                   />
                   <label class="my-label" for="">Password</label>
@@ -82,7 +80,6 @@
                     class="common-style"
                     type="password"
                     name="password"
-                    id=""
                     required
                   />
                   <div>
@@ -99,7 +96,7 @@
                       <th>Service</th>
                       <th>Host</th>
                       <th>Port</th>
-                      <th>Email</th>
+                      <th>User Name</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
@@ -110,7 +107,7 @@
                       <td><%= settings[i].service %></td>
                       <td><%= settings[i].host %></td>
                       <td><%= settings[i].port %></td>
-                      <td><%= settings[i].email %></td>
+                      <td><%= settings[i].userName %></td>
                       <td class="text-left">
                         <a
                           class="add-btn bg-danger"
@@ -127,7 +124,7 @@
                           data-service="<%= settings[i].service %>"
                           data-host="<%= settings[i].host %>"
                           data-port="<%= settings[i].port %>"
-                          data-email="<%= settings[i].email %>"
+                          data-userName="<%= settings[i].userName %>"
                           data-password="<%= settings[i].password %>"
                         >
                           <i class="fas fa-edit"></i>
@@ -281,12 +278,12 @@
                 id="editSetting_port"
                 required
               />
-              <label class="my-label" for="">Email</label>
+              <label class="my-label" for="">User Name</label>
               <input
                 class="common-style"
-                type="email"
-                name="email"
-                id="editSetting_email"
+                type="text"
+                name="userName"
+                id="editSetting_username"
                 required
               />
               <label class="my-label" for="">Password</label>
@@ -384,13 +381,13 @@
       const service = $(this).attr('data-service');
       const host = $(this).attr('data-host');
       const port = $(this).attr('data-port');
-      const email = $(this).attr('data-email');
+      const username = $(this).attr('data-username');
       const password = $(this).attr('data-password');
       $('#editSettingModal #editSetting_id').val(id);
       $('#editSettingModal #editSetting_service').val(service);
       $('#editSettingModal #editSetting_host').val(host);
       $('#editSettingModal #editSetting_port').val(port);
-      $('#editSettingModal #editSetting_email').val(email);
+      $('#editSettingModal #editSetting_username').val(username);
       $('#editSettingModal #editSetting_password').val(password);
       $('#editSettingModal').modal('show');
     });

@@ -10,9 +10,9 @@ module.exports.settings_get = async (req, res, next) => {
 };
 
 module.exports.addsetting_post = async (req, res, next) => {
-  const {service, host, port, email, password} = req.body;
+  const {service, host, port, userName, password} = req.body;
   const newSetting = new Setting({
-    service, host, port, email, password
+    service, host, port, userName, password
   });
   await newSetting.save();
   req.flash('success_msg', 'New Setting added');
@@ -27,8 +27,8 @@ module.exports.deletesetting_get = async (req, res, next) => {
 };
 
 module.exports.editsetting_post = async (req, res, next) => {
-  const {id, service, host, port, email, password} = req.body;
-  await Setting.findByIdAndUpdate(id, {service, host, port, email, password});
+  const {id, service, host, port, userName, password} = req.body;
+  await Setting.findByIdAndUpdate(id, {service, host, port, userName, password});
   req.flash('success_msg', 'Setting updated');
   res.redirect('/settings?tab=settings');
 };

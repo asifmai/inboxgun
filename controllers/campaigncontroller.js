@@ -26,3 +26,9 @@ module.exports.newcampaign_post = async (req, res, next) => {
   req.flash('success_msg', 'Campaign Added');
   res.redirect('/campaigns');
 }
+
+module.exports.deletecampaign_get = async (req, res) => {
+  await Campaign.findByIdAndDelete(req.params.id);
+  req.flash('success_msg', 'Campaign Deleted');
+  res.redirect('/campaigns');
+}

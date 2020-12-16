@@ -2,6 +2,7 @@
   --theme-color: #486cf1;
   --secondary-color: #888888;
   --primary-color: #222222;
+  --danger-color: #f44336;
 }
 
 body {
@@ -42,7 +43,7 @@ body {
 }
 
 .page-Navbar .log-out {
-  color: #f44336;
+  color: var(--danger-color);
   font-size: 0.9em;
   text-decoration: none;
   font-weight: 500;
@@ -124,17 +125,29 @@ body {
   content: unset;
 }
 
-.campaings-card .btn.btn-secondary.dropdown-toggle {
+.campaings-card .campaign-status {
   background-color: white;
   border: 2px solid #dcdcdc;
   color: #dcdcdc;
   font-size: 0.7em;
-  padding: 0em 0.4em;
   border-radius: 0.2em;
   position: absolute;
   right: 10px;
   top: 10px;
-  box-shadow: none;
+  height: 21px;
+  width: 23px;
+  line-height: 1.7;
+}
+
+.campaings-card .campaign-status.delete {
+  right: unset;
+  left: 10px;
+  transition: 100ms all ease-in-out;
+}
+
+.campaings-card .campaign-status.delete:hover {
+  color: var(--danger-color);
+  border-color: var(--danger-color);
 }
 
 .campaings-card .dropdown-item {

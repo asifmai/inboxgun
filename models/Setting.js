@@ -10,7 +10,7 @@ const settingSchema = new mongoose.Schema({
   port: {
     type: String,
   },
-  email: {
+  userName: {
     type: String,
   },
   password: {
