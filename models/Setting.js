@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const settingSchema = new mongoose.Schema({
+  name: String,
   service: {
     type: String,
   },
@@ -16,6 +17,8 @@ const settingSchema = new mongoose.Schema({
   password: {
     type: String,
   },
+  fromName: String,
+  fromEmail: String,
   createdAt: {
     type: Date,
     default: Date.now,

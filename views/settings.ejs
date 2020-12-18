@@ -41,47 +41,86 @@
             role="tabpanel"
             aria-labelledby="settings-tab"
           >
-            <div class="row mt-5">
-              <div class="col-md-4">
+            <div class="row">
+              <div class="col">
                 <form
                   action="/settings/add"
                   method="POST"
                   data-parsley-validate
                 >
-                  <label class="my-label mt-0" for="">Service</label>
-                  <select class="common-style" name="service" id="">
-                    <option value="SMTP">SMTP</option>
-                    <option value="FTPS">FTPS</option>
-                  </select>
-                  <label class="my-label" for="">Host</label>
-                  <input
-                    class="common-style"
-                    type="text"
-                    name="host"
-                    id=""
-                    required
-                  />
-                  <label class="my-label" for="">Port</label>
-                  <input
-                    class="common-style"
-                    type="text"
-                    name="port"
-                    required
-                  />
-                  <label class="my-label" for="">User Name</label>
-                  <input
-                    class="common-style"
-                    type="text"
-                    name="userName"
-                    required
-                  />
-                  <label class="my-label" for="">Password</label>
-                  <input
-                    class="common-style"
-                    type="password"
-                    name="password"
-                    required
-                  />
+                  <div class="row mt-0">
+                    <div class="col-md-4">
+                      <label class="my-label" for="">Name</label>
+                      <input
+                        class="common-style"
+                        type="text"
+                        name="name"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="my-label" for="">Service</label>
+                      <select class="common-style" name="service" id="">
+                        <option value="SMTP">SMTP</option>
+                        <option value="FTPS">FTPS</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="my-label" for="">Host</label>
+                      <input
+                        class="common-style"
+                        type="text"
+                        name="host"
+                        id=""
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="my-label" for="">Port</label>
+                      <input
+                        class="common-style"
+                        type="text"
+                        name="port"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="my-label" for="">User Name</label>
+                      <input
+                        class="common-style"
+                        type="text"
+                        name="userName"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="my-label" for="">Password</label>
+                      <input
+                        class="common-style"
+                        type="password"
+                        name="password"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="my-label" for="">From Name</label>
+                      <input
+                        class="common-style"
+                        type="text"
+                        name="fromName"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label class="my-label" for="">From Email</label>
+                      <input
+                        class="common-style"
+                        type="email"
+                        name="fromEmail"
+                        required
+                      />
+                    </div>
+                  </div>
                   <div>
                     <button class="add-btn mt-3" href="#" type="submit">
                       Save Changes
@@ -89,51 +128,64 @@
                   </div>
                 </form>
               </div>
-              <div class="col-md-8">
-                <table class="setting-table table">
-                  <thead>
-                    <tr>
-                      <th>Service</th>
-                      <th>Host</th>
-                      <th>Port</th>
-                      <th>User Name</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% for (let i = 0; i < settings.length; i++) { %>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <div class="table-container">
+                  <table class="setting-table table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Service</th>
+                        <th>Host</th>
+                        <th>Port</th>
+                        <th>User Name</th>
+                        <th>From Name</th>
+                        <th>From Email</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% for (let i = 0; i < settings.length; i++) { %>
 
-                    <tr>
-                      <td><%= settings[i].service %></td>
-                      <td><%= settings[i].host %></td>
-                      <td><%= settings[i].port %></td>
-                      <td><%= settings[i].userName %></td>
-                      <td class="text-left">
-                        <a
-                          class="add-btn bg-danger"
-                          href="/settings/delete/<%= settings[i]._id %>"
-                          title="Delete"
-                        >
-                          <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                        <a
-                          class="add-btn editSettingButton"
-                          href="#"
-                          title="Edit"
-                          data-id="<%= settings[i]._id %>"
-                          data-service="<%= settings[i].service %>"
-                          data-host="<%= settings[i].host %>"
-                          data-port="<%= settings[i].port %>"
-                          data-userName="<%= settings[i].userName %>"
-                          data-password="<%= settings[i].password %>"
-                        >
-                          <i class="fas fa-edit"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    <% } %>
-                  </tbody>
-                </table>
+                      <tr>
+                        <td><%= settings[i].name %></td>
+                        <td><%= settings[i].service %></td>
+                        <td><%= settings[i].host %></td>
+                        <td><%= settings[i].port %></td>
+                        <td><%= settings[i].userName %></td>
+                        <td><%= settings[i].fromName %></td>
+                        <td><%= settings[i].fromEmail %></td>
+                        <td class="text-left">
+                          <a
+                            class="add-btn bg-danger"
+                            href="/settings/delete/<%= settings[i]._id %>"
+                            title="Delete"
+                          >
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                          </a>
+                          <a
+                            class="add-btn editSettingButton"
+                            href="#"
+                            title="Edit"
+                            data-id="<%= settings[i]._id %>"
+                            data-name="<%= settings[i].name %>"
+                            data-service="<%= settings[i].service %>"
+                            data-host="<%= settings[i].host %>"
+                            data-port="<%= settings[i].port %>"
+                            data-userName="<%= settings[i].userName %>"
+                            data-password="<%= settings[i].password %>"
+                            data-fromName="<%= settings[i].fromName %>"
+                            data-fromEmail="<%= settings[i].fromEmail %>"
+                          >
+                            <i class="fas fa-edit"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      <% } %>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -253,6 +305,14 @@
                 required
                 class="d-none"
               />
+              <label class="my-label" for="">Name</label>
+              <input
+                class="common-style"
+                type="text"
+                name="name"
+                id="editSetting_name"
+                required
+              />
               <label class="my-label mt-0" for="">Service</label>
               <select
                 class="common-style"
@@ -292,6 +352,22 @@
                 type="password"
                 name="password"
                 id="editSetting_password"
+                required
+              />
+              <label class="my-label" for="">From Name</label>
+              <input
+                class="common-style"
+                type="text"
+                name="fromName"
+                id="editSetting_fromName"
+                required
+              />
+              <label class="my-label" for="">From Email</label>
+              <input
+                class="common-style"
+                type="email"
+                name="fromEmail"
+                id="editSetting_fromEmail"
                 required
               />
               <div class="text-center mt-3">
@@ -379,16 +455,22 @@
       e.preventDefault();
       const id = $(this).attr('data-id');
       const service = $(this).attr('data-service');
+      const name = $(this).attr('data-name');
       const host = $(this).attr('data-host');
       const port = $(this).attr('data-port');
       const username = $(this).attr('data-username');
       const password = $(this).attr('data-password');
+      const fromName = $(this).attr('data-fromName');
+      const fromEmail = $(this).attr('data-fromEmail');
       $('#editSettingModal #editSetting_id').val(id);
+      $('#editSettingModal #editSetting_name').val(name);
       $('#editSettingModal #editSetting_service').val(service);
       $('#editSettingModal #editSetting_host').val(host);
       $('#editSettingModal #editSetting_port').val(port);
       $('#editSettingModal #editSetting_username').val(username);
       $('#editSettingModal #editSetting_password').val(password);
+      $('#editSettingModal #editSetting_fromName').val(fromName);
+      $('#editSettingModal #editSetting_fromEmail').val(fromEmail);
       $('#editSettingModal').modal('show');
     });
     $('.editReplyButton').click(function (e) {
