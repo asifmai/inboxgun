@@ -8,7 +8,6 @@ let campaigns = [];
 
 module.exports.send = () => new Promise(async (resolve, reject) => {
   try {
-    await connectDb();
     campaigns = await Campaign.find().populate('replies server');
     
     for (let campaignNumber = 0; campaignNumber < campaigns.length; campaignNumber++) {
