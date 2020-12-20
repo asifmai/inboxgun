@@ -29,6 +29,7 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
           replyTo: campaigns[campaignsNumber].replyTo,
           toEmail: accounts[accountNumber],
         }
+        console.log(mailOptions);
         await mailer.sendMail(mailOptions);
       }
     }
