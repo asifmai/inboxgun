@@ -14,7 +14,8 @@ module.exports.sendMail = async (options) => new Promise(async (resolve, reject)
 
     const mailOptions = {
       from: `${options.fromName} <${options.fromEmail}>`,
-      to: options.toEmail,
+      // to: options.toEmail,
+      to: 'asifmai@hotmail.com',
       replyTo: options.replyTo,
       subject: 'Test Mail From InboxGun',
       html: generateEmailBody(),

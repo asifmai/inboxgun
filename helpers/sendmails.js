@@ -13,7 +13,6 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
   try {
     await connectDb();
     const campaigns = await Campaign.find().populate('replies server');
-    console.log(campaigns);
     
     for (let campaignsNumber = 0; campaignsNumber < campaigns.length; campaignsNumber++) {
       const accounts = await fetchAccounts(campaigns[campaignsNumber].numberOfEmails);
@@ -30,7 +29,7 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
           replyTo: campaigns[campaignsNumber].replyTo,
           toEmail: accounts[accountNumber],
         }
-        console.log(mailOptions);
+        await mailer.sendMail(mailOptions);
       }
     }
     
