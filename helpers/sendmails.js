@@ -6,12 +6,6 @@ const Campaign = require('../models/Campaign');
 const saveLog = require('./savelog');
 let campaigns = [];
 
-// @todo remove below lines
-const Reply = require('../models/Reply');
-const Setting = require('../models/Setting');
-const connectDb = require('../config/db');
-require('dotenv').config();
-
 module.exports.send = () => new Promise(async (resolve, reject) => {
   try {
     await connectDb();
@@ -83,5 +77,3 @@ const fetchAccounts = (numberOfAccounts) => new Promise(async (resolve, reject) 
     reject(error);
   }
 });
-
-this.send();

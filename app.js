@@ -4,13 +4,17 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const connectDb = require('./config/db');
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
 
+const connectDb = require('./config/db');
+const sendMailCron = require('./helpers/campaignscron');
+
 // Connect to MongoDB
 connectDb();
+
+sendMailCron();
 
 // Initialize App
 const app = express();
