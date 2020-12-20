@@ -1,6 +1,6 @@
 const Log = require('../models/Log');
 
-module.exports = (campaignId, success, failure) = () => new Promise(async (resolve, reject) => {
+module.exports = (campaignId, success, failure) => new Promise(async (resolve, reject) => {
   try {
     const newLog = new Log({
       campaign: campaignId,
