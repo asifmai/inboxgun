@@ -4,6 +4,7 @@ const delay = require('delay');
 const mailer = require('./mailer');
 const Campaign = require('../models/Campaign');
 const saveLog = require('./savelog');
+let campaigns = [];
 
 // @todo remove below lines
 const Reply = require('../models/Reply');
@@ -14,7 +15,7 @@ require('dotenv').config();
 module.exports.send = () => new Promise(async (resolve, reject) => {
   try {
     await connectDb();
-    const campaigns = await Campaign.find().populate('replies server');
+    campaigns = await Campaign.find().populate('replies server');
     
     for (let campaignsNumber = 0; campaignsNumber < campaigns.length; campaignsNumber++) {
       await sendMailsForCampaign(campaignsNumber);
