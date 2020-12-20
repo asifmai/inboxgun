@@ -15,7 +15,7 @@ const sendMailCron = require('./helpers/campaignscron');
 connectDb();
 
 sendMailCron({
-  seconds: 0, minutes: 30, hours: 13, day: '*'
+  seconds: 0, minutes: 31, hours: 13, day: '*'
 });
 
 // Initialize App
