@@ -3,6 +3,8 @@ const path = require('path');
 const Campaign = require('../models/Campaign');
 let accounts = [];
 // @todo remove connectDb and dotenv lines
+const Reply = require('../models/Reply');
+const Setting = require('../models/Setting');
 const connectDb = require('../config/db');
 require('dotenv').config();
 
