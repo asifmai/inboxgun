@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const delay = require('delay');
 const mailer = require('./mailer');
 const Campaign = require('../models/Campaign');
 
@@ -15,10 +16,10 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
     const campaigns = await Campaign.find().populate('replies server');
     
     for (let campaignsNumber = 0; campaignsNumber < campaigns.length; campaignsNumber++) {
+      console.log(`${campaignsNumber+1}/${campaigns.length} - Sending Mail to Campaign [${campaigns[campaignsNumber].name}]`);
       const accounts = await fetchAccounts(campaigns[campaignsNumber].numberOfEmails);
-      // for (let accountNumber = 0; accountNumber < accounts.length; accountNumber++) {
-        // @todo - remove below line
-      for (let accountNumber = 0; accountNumber < 1; accountNumber++) {
+      for (let accountNumber = 0; accountNumber < accounts.length; accountNumber++) {
+        console.log(`${accountNumber+1}/${accounts.length} - Sending Mail to [${accounts[accountNumber]}]`);
         const mailOptions = {
           host: campaigns[campaignsNumber].server.host,
           port: campaigns[campaignsNumber].server.port,
@@ -29,8 +30,9 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
           replyTo: campaigns[campaignsNumber].replyTo,
           toEmail: accounts[accountNumber],
         }
-        console.log(mailOptions);
+
         await mailer.sendMail(mailOptions);
+        await delay(3000);
       }
     }
     
