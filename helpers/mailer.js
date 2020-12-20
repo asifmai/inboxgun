@@ -9,6 +9,9 @@ module.exports.sendMail = async (options) => new Promise(async (resolve, reject)
       auth: {
         user: options.user,
         pass: options.password,
+      },
+      tls: {
+        rejectUnauthorized: false
       }
     });
 
