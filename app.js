@@ -14,9 +14,7 @@ const sendMailCron = require('./helpers/campaignscron');
 // Connect to MongoDB
 connectDb();
 
-sendMailCron({
-  seconds: 0, minutes: 31, hours: 13, day: '*'
-});
+sendMailCron();
 
 // Initialize App
 const app = express();
