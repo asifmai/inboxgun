@@ -3,6 +3,7 @@ const router = express.Router();
 const indexController = require('../controllers/indexcontroller');
 const settingController = require('../controllers/settingreplycontroller');
 const campaignController = require('../controllers/campaigncontroller');
+const logController = require('../controllers/logcontroller');
 const auth = require('../config/auth');
 
 /* GET - Private - Dashboard */
@@ -47,13 +48,16 @@ router.get('/settings/delete/:id', auth.ensureAuthenticatedAdmin, settingControl
 // GET - Private - Edit Setting
 router.post('/settings/edit', auth.ensureAuthenticatedAdmin, settingController.editsetting_post);
 
-// GET - Private - Add Reply
+// POST - Private - Add Reply
 router.post('/settings/replies/add', auth.ensureAuthenticatedAdmin, settingController.addreply_post);
 
 // GET - Private - Delete Reply
 router.get('/settings/replies/delete/:id', auth.ensureAuthenticatedAdmin, settingController.deletereply_get);
 
-// GET - Private - Edit Reply
+// POST - Private - Edit Reply
 router.post('/settings/replies/edit', auth.ensureAuthenticatedAdmin, settingController.editreply_post);
+
+// GET - Private - Logd
+router.get('/logs', auth.ensureAuthenticatedAdmin, logController.logs_get);
 
 module.exports = router;

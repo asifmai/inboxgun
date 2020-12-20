@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ("partials/commonhead") %>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <%- include ("partials/header") %>
+    <!--  Settings Page -->
+    <div class="container mt-5 pt-3 pb-5">
+      <div class="settings-page">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Campaign</th>
+              <th>Mail(s) Success</th>
+              <th>Mail(s) Failure</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let i = 0; i < logs.length; i++) { %>
+            <tr>
+              <td class="date-column"><%= logs[i].createdAt %></td>
+              <td><%= logs[i].campaign.name %></td>
+              <td><%= logs[i].success %></td>
+              <td><%= logs[i].failure %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <%- include ("partials/commonscripts") %>
+  </body>
+
+  <script>
+    $('.editSettingButton').click(function (e) {
+      e.preventDefault();
+      const id = $(this).attr('data-id');
+      const service = $(this).attr('data-service');
+      const name = $(this).attr('data-name');
+      const host = $(this).attr('data-host');
+      const port = $(this).attr('data-port');
+      const username = $(this).attr('data-username');
+      const password = $(this).attr('data-password');
+      const fromName = $(this).attr('data-fromName');
+      const fromEmail = $(this).attr('data-fromEmail');
+      $('#editSettingModal #editSetting_id').val(id);
+      $('#editSettingModal #editSetting_name').val(name);
+      $('#editSettingModal #editSetting_service').val(service);
+      $('#editSettingModal #editSetting_host').val(host);
+      $('#editSettingModal #editSetting_port').val(port);
+      $('#editSettingModal #editSetting_username').val(username);
+      $('#editSettingModal #editSetting_password').val(password);
+      $('#editSettingModal #editSetting_fromName').val(fromName);
+      $('#editSettingModal #editSetting_fromEmail').val(fromEmail);
+      $('#editSettingModal').modal('show');
+    });
+    $('.editReplyButton').click(function (e) {
+      e.preventDefault();
+      const id = $(this).attr('data-id');
+      const name = $(this).attr('data-name');
+      const body = $(this).attr('data-body');
+      $('#editReplyModal #editReply_id').val(id);
+      $('#editReplyModal #editReply_name').val(name);
+      $('#editReplyModal #editReply_body1').val(body);
+      $('#editReplyModal').modal('show');
+    });
+  </script>
+</html>
