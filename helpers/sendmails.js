@@ -17,8 +17,8 @@ module.exports.send = () => new Promise(async (resolve, reject) => {
     await connectDb();
     campaigns = await Campaign.find().populate('replies server');
     
-    for (let campaignsNumber = 0; campaignsNumber < campaigns.length; campaignsNumber++) {
-      await sendMailsForCampaign(campaignsNumber);
+    for (let campaignNumber = 0; campaignNumber < campaigns.length; campaignNumber++) {
+      await sendMailsForCampaign(campaignNumber);
     }
     
     resolve(true);
@@ -32,18 +32,18 @@ const sendMailsForCampaign = (campaignNumber) => new Promise(async (resolve, rej
   try {
     let mailSuccess = 0;
     let mailFailure = 0;
-    console.log(`${campaignsNumber+1}/${campaigns.length} - Sending Mails for Campaign [${campaigns[campaignsNumber].name}] from Server [${campaigns[campaignsNumber].server.name}], Number of Emails [${campaigns[campaignsNumber].numberOfEmails}]`);
-    const accounts = await fetchAccounts(campaigns[campaignsNumber].numberOfEmails);
+    console.log(`${campaignNumber+1}/${campaigns.length} - Sending Mails for Campaign [${campaigns[campaignNumber].name}] from Server [${campaigns[campaignNumber].server.name}], Number of Emails [${campaigns[campaignNumber].numberOfEmails}]`);
+    const accounts = await fetchAccounts(campaigns[campaignNumber].numberOfEmails);
     for (let accountNumber = 0; accountNumber < accounts.length; accountNumber++) {
       console.log(`${accountNumber+1}/${accounts.length} - Sending Mail to [${accounts[accountNumber]}]`);
       const mailOptions = {
-        host: campaigns[campaignsNumber].server.host,
-        port: campaigns[campaignsNumber].server.port,
-        user: campaigns[campaignsNumber].server.userName,
-        password: campaigns[campaignsNumber].server.password,
-        fromName: campaigns[campaignsNumber].server.fromName,
-        fromEmail: campaigns[campaignsNumber].server.fromEmail,
-        replyTo: campaigns[campaignsNumber].replyTo,
+        host: campaigns[campaignNumber].server.host,
+        port: campaigns[campaignNumber].server.port,
+        user: campaigns[campaignNumber].server.userName,
+        password: campaigns[campaignNumber].server.password,
+        fromName: campaigns[campaignNumber].server.fromName,
+        fromEmail: campaigns[campaignNumber].server.fromEmail,
+        replyTo: campaigns[campaignNumber].replyTo,
         toEmail: accounts[accountNumber],
       }
 
@@ -55,8 +55,8 @@ const sendMailsForCampaign = (campaignNumber) => new Promise(async (resolve, rej
       }
       await delay(3000);
     }
-    console.log(`${campaignsNumber+1}/${campaigns.length} - SENT Mails for Campaign [${campaigns[campaignsNumber].name}] from Server [${campaigns[campaignsNumber].server.name}], Number of Emails [${campaigns[campaignsNumber].numberOfEmails}], Success [${mailSuccess}], Fail [${mailFailure}]`);
-    await saveLog(campaigns[campaignsNumber]._id, mailSuccess, mailFailure);
+    console.log(`${campaignNumber+1}/${campaigns.length} - SENT Mails for Campaign [${campaigns[campaignNumber].name}] from Server [${campaigns[campaignNumber].server.name}], Number of Emails [${campaigns[campaignNumber].numberOfEmails}], Success [${mailSuccess}], Fail [${mailFailure}]`);
+    await saveLog(campaigns[campaignNumber]._id, mailSuccess, mailFailure);
 
     resolve(true);
   } catch (error) {
