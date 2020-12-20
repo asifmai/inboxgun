@@ -1,5 +1,6 @@
 const Campaign = require('../models/Campaign');
 const connectDb = require('../config/db');
+require('dotenv').config();
 
 module.exports.run = () => new Promise(async (resolve, reject) => {
   try {
