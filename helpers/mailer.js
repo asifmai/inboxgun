@@ -24,7 +24,7 @@ module.exports.sendMail = async (options) => new Promise(async (resolve, reject)
     };
 
     const info = await transporter.sendMail(mailOptions)
-    console.log(`Message sent: %s ${info.messageId}`);
+    console.log(`Message sent: ${info.messageId}`);
     resolve(true);
   } catch (error) {
     console.log(`sendMail Error: ${error}`);

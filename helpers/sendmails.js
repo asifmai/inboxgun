@@ -16,7 +16,7 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
     const campaigns = await Campaign.find().populate('replies server');
     
     for (let campaignsNumber = 0; campaignsNumber < campaigns.length; campaignsNumber++) {
-      console.log(`${campaignsNumber+1}/${campaigns.length} - Sending Mail to Campaign [${campaigns[campaignsNumber].name}]`);
+      console.log(`${campaignsNumber+1}/${campaigns.length} - Sending Mail to Campaign [${campaigns[campaignsNumber].name}] from Server [${campaigns[campaignsNumber].server.name}], Number of Emails [${campaigns[campaignsNumber].numberOfEmails}]`);
       const accounts = await fetchAccounts(campaigns[campaignsNumber].numberOfEmails);
       for (let accountNumber = 0; accountNumber < accounts.length; accountNumber++) {
         console.log(`${accountNumber+1}/${accounts.length} - Sending Mail to [${accounts[accountNumber]}]`);
