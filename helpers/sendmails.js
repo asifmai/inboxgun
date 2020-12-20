@@ -14,9 +14,20 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
     const campaigns = await Campaign.find().populate('replies server');
     console.log(campaigns);
     
-    for (let i = 0; i < campaigns.length; i++) {
-      const accounts = await fetchAccounts(campaigns[i].numberOfEmails);
-      console.log(accounts);
+    for (let campaignsNumber = 0; campaignsNumber < campaigns.length; campaignsNumber++) {
+      const accounts = await fetchAccounts(campaigns[campaignsNumber].numberOfEmails);
+      for (let accountNumber = 0; accountNumber < accounts.length; accountNumber++) {
+        const mailOptions = {
+          host: campaigns[campaignsNumber].server.host,
+          port: campaigns[campaignsNumber].server.port,
+          user: campaigns[campaignsNumber].server.userName,
+          password: campaigns[campaignsNumber].server.password,
+          fromName: campaigns[campaignsNumber].server.fromName,
+          fromEmail: campaigns[campaignsNumber].server.fromEmail,
+          toEmail: accounts[accountNumber],
+        }
+        console.log(mailOptions);
+      }
     }
     
     resolve(true);
