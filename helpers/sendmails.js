@@ -3,6 +3,7 @@ const path = require('path');
 const delay = require('delay');
 const mailer = require('./mailer');
 const Campaign = require('../models/Campaign');
+const saveLog = require('./savelog');
 
 // @todo remove below lines
 const Reply = require('../models/Reply');
@@ -16,7 +17,9 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
     const campaigns = await Campaign.find().populate('replies server');
     
     for (let campaignsNumber = 0; campaignsNumber < campaigns.length; campaignsNumber++) {
-      console.log(`${campaignsNumber+1}/${campaigns.length} - Sending Mail to Campaign [${campaigns[campaignsNumber].name}] from Server [${campaigns[campaignsNumber].server.name}], Number of Emails [${campaigns[campaignsNumber].numberOfEmails}]`);
+      let mailSuccess = 0;
+      let mailFailure = 0;
+      console.log(`${campaignsNumber+1}/${campaigns.length} - Sending Mails for Campaign [${campaigns[campaignsNumber].name}] from Server [${campaigns[campaignsNumber].server.name}], Number of Emails [${campaigns[campaignsNumber].numberOfEmails}]`);
       const accounts = await fetchAccounts(campaigns[campaignsNumber].numberOfEmails);
       for (let accountNumber = 0; accountNumber < accounts.length; accountNumber++) {
         console.log(`${accountNumber+1}/${accounts.length} - Sending Mail to [${accounts[accountNumber]}]`);
@@ -31,9 +34,16 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
           toEmail: accounts[accountNumber],
         }
 
-        await mailer.sendMail(mailOptions);
+        try {
+          await mailer.sendMail(mailOptions);
+          mailSuccess++;
+        } catch (error) {
+          mailFailure++;
+        }
         await delay(3000);
       }
+      console.log(`${campaignsNumber+1}/${campaigns.length} - SENT Mails for Campaign [${campaigns[campaignsNumber].name}] from Server [${campaigns[campaignsNumber].server.name}], Number of Emails [${campaigns[campaignsNumber].numberOfEmails}], Success [${mailSuccess}], Fai [${mailFailure}]`);
+      await saveLog(campaigns[campaignsNumber]._id, mailSuccess, mailFailure);
     }
     
     resolve(true);
