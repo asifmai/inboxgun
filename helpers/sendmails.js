@@ -17,7 +17,9 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
     
     for (let campaignsNumber = 0; campaignsNumber < campaigns.length; campaignsNumber++) {
       const accounts = await fetchAccounts(campaigns[campaignsNumber].numberOfEmails);
-      for (let accountNumber = 0; accountNumber < accounts.length; accountNumber++) {
+      // for (let accountNumber = 0; accountNumber < accounts.length; accountNumber++) {
+        // @todo - remove below line
+      for (let accountNumber = 0; accountNumber < 1; accountNumber++) {
         const mailOptions = {
           host: campaigns[campaignsNumber].server.host,
           port: campaigns[campaignsNumber].server.port,
