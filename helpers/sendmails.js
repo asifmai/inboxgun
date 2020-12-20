@@ -12,4 +12,4 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
   }
 });
 
-run();
+this.run();
