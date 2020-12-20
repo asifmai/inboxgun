@@ -10,7 +10,7 @@
     <!--  Settings Page -->
     <div class="container mt-5 pt-3 pb-5">
       <div class="settings-page">
-        <table class="table table-striped table-hover table-sm">
+        <table class="table table-striped table-hover table-sm logs-table">
           <thead class="thead-dark">
             <tr>
               <th>Date</th>
@@ -38,7 +38,7 @@
 
   <script>
     $('.date-column').each(function (index, element) {
-      $(element).text(moment($(element)).format('MM-DD-YYYY HH:mm'));
+      $(element).text(moment($(element)).format('MM-DD-YYYY HH-mm A'));
     });
   </script>
 </html>

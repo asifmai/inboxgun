@@ -338,3 +338,7 @@ input[type='checkbox'] {
   vertical-align: middle;
 }
 /* Multi Select end */
+
+.logs-table {
+  font-size: 0.9em;
+}
