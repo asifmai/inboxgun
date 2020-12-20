@@ -10,8 +10,8 @@
     <!--  Settings Page -->
     <div class="container mt-5 pt-3 pb-5">
       <div class="settings-page">
-        <table class="table">
-          <thead>
+        <table class="table table-striped table-hover table-sm">
+          <thead class="thead-dark">
             <tr>
               <th>Date</th>
               <th>Campaign</th>
@@ -37,37 +37,8 @@
   </body>
 
   <script>
-    $('.editSettingButton').click(function (e) {
-      e.preventDefault();
-      const id = $(this).attr('data-id');
-      const service = $(this).attr('data-service');
-      const name = $(this).attr('data-name');
-      const host = $(this).attr('data-host');
-      const port = $(this).attr('data-port');
-      const username = $(this).attr('data-username');
-      const password = $(this).attr('data-password');
-      const fromName = $(this).attr('data-fromName');
-      const fromEmail = $(this).attr('data-fromEmail');
-      $('#editSettingModal #editSetting_id').val(id);
-      $('#editSettingModal #editSetting_name').val(name);
-      $('#editSettingModal #editSetting_service').val(service);
-      $('#editSettingModal #editSetting_host').val(host);
-      $('#editSettingModal #editSetting_port').val(port);
-      $('#editSettingModal #editSetting_username').val(username);
-      $('#editSettingModal #editSetting_password').val(password);
-      $('#editSettingModal #editSetting_fromName').val(fromName);
-      $('#editSettingModal #editSetting_fromEmail').val(fromEmail);
-      $('#editSettingModal').modal('show');
-    });
-    $('.editReplyButton').click(function (e) {
-      e.preventDefault();
-      const id = $(this).attr('data-id');
-      const name = $(this).attr('data-name');
-      const body = $(this).attr('data-body');
-      $('#editReplyModal #editReply_id').val(id);
-      $('#editReplyModal #editReply_name').val(name);
-      $('#editReplyModal #editReply_body1').val(body);
-      $('#editReplyModal').modal('show');
+    $('.date-column').each(function (index, element) {
+      $(element).text(moment($(element)).format('MM-DD-YYYY HH:mm'));
     });
   </script>
 </html>
