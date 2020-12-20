@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const mailer = require('./mailer');
 const Campaign = require('../models/Campaign');
 
 // @todo remove below lines
@@ -24,6 +25,7 @@ module.exports.run = () => new Promise(async (resolve, reject) => {
           password: campaigns[campaignsNumber].server.password,
           fromName: campaigns[campaignsNumber].server.fromName,
           fromEmail: campaigns[campaignsNumber].server.fromEmail,
+          replyTo: campaigns[campaignsNumber].replyTo,
           toEmail: accounts[accountNumber],
         }
         console.log(mailOptions);
