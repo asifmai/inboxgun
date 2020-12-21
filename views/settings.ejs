@@ -158,7 +158,7 @@
                         <td><%= settings[i].fromEmail %></td>
                         <td class="text-left">
                           <a
-                            class="add-btn bg-danger"
+                            class="add-btn bg-danger btn-delete-server"
                             href="/settings/delete/<%= settings[i]._id %>"
                             title="Delete"
                           >
@@ -249,7 +249,7 @@
                       <td><%= replies[i].body %></td>
                       <td class="text-left">
                         <a
-                          class="add-btn bg-danger"
+                          class="add-btn bg-danger btn-delete-reply"
                           href="/settings/replies/delete/<%= replies[i]._id %>"
                           title="Delete"
                         >
@@ -482,6 +482,42 @@
       $('#editReplyModal #editReply_name').val(name);
       $('#editReplyModal #editReply_body1').val(body);
       $('#editReplyModal').modal('show');
+    });
+
+    $('.btn-delete-server').click(function (e) {
+      e.preventDefault();
+      const url = $(this).attr('href');
+      swal
+        .fire({
+          title: 'Are you sure?',
+          text: 'You will not be able to recover this server!',
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete server!',
+        })
+        .then(function (result) {
+          if (result.value) {
+            window.location.href = url;
+          }
+        });
+    });
+
+    $('.btn-delete-reply').click(function (e) {
+      e.preventDefault();
+      const url = $(this).attr('href');
+      swal
+        .fire({
+          title: 'Are you sure?',
+          text: 'You will not be able to recover this reply!',
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete reply!',
+        })
+        .then(function (result) {
+          if (result.value) {
+            window.location.href = url;
+          }
+        });
     });
   </script>
 </html>

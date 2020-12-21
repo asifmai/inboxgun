@@ -65,6 +65,24 @@
       document.querySelectorAll('.campaign-date').forEach((elm) => {
         elm.textContent = moment(elm.textContent).format('MMM DD, YYYY');
       });
+
+      $('a.delete').click(function (e) {
+        e.preventDefault();
+        const url = $(this).attr('href');
+        swal
+          .fire({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this campaign!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete campaign!',
+          })
+          .then(function (result) {
+            if (result.value) {
+              window.location.href = url;
+            }
+          });
+      });
     </script>
   </body>
 </html>
