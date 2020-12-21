@@ -38,7 +38,7 @@
 
   <script>
     $('.date-column').each(function (index, element) {
-      // $(element).text(moment($(element)).format('M-D-YYYY H:m'));
+      $(element).text(moment($(element).text()).format('MM-DD-YYYY HH:mm A'));
     });
   </script>
 </html>
